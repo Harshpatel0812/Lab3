@@ -1,0 +1,17 @@
+<launch>
+    <arg name="rviz_config"
+         default="/workspaces/lab2-3-team-3/RViz/lab3_moveit.rviz" />
+
+    <node pkg="robot_state_publisher"
+          type="robot_state_publisher"
+          name="robot_state_publisher"
+          output="screen" />
+
+    <include file="$(find turtlebot3_manipulation_moveit_config)/launch/move_group.launch" />
+
+    <node pkg="rviz"
+          type="rviz"
+          name="rviz"
+          args="-d $(arg rviz_config)"
+          output="screen" />
+</launch>
